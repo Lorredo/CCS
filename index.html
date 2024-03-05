@@ -25,11 +25,12 @@
 
     <!-- Animate CSS-->
     <link href="css/animate.css" rel="stylesheet" type="text/css">
-
+<link rel="stylesheet" href="css/mypopup.css">
     <!--Google Webfonts-->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="css/social-slider.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
     <style>
@@ -45,6 +46,120 @@
     transform: translate(-50%, -50%);
     width: 80%;
     z-index: 999992
+}
+
+.wrapper-tab {
+  width: 100%;
+  margin: 0 auto;
+  z-index: 1;
+}
+.tabs {
+  position: relative;
+  background: #A82324;
+height: 1250px;
+}
+.tabs::before,
+.tabs::after {
+  content: "";
+  display: table;
+}
+.tabs::after {
+  clear: both;
+}
+.tab {
+  float: left;
+}
+.tab-switch {
+  display: none;
+}
+.tab-label {
+  position: relative;
+  display: block;
+  line-height: 2.75em;
+  height: 3em;
+  padding: 0 1.618em;
+  background: #A82324;
+  border-right: 0.125rem solid #A82324;
+  color: #d2b356;
+  cursor: pointer;
+  top: 0;
+  transition: all 0.25s;
+}
+.tab-label:hover {
+  top: -0.25rem;
+  transition: top 0.25s;
+}
+.tab-content {
+  position: absolute;
+  z-index: 1;
+  top: 2.75em;
+  left: 0;
+  background: #fff;
+  color: #2c3e50;
+  opacity: 0;
+  transition: all 0.35s;
+}
+.tab-switch:checked + .tab-label {
+  background: #d2b356;
+  color: #fff;
+  border-bottom: 0;
+  border-right: 0.125rem solid #fff;
+  border-left: 0.125rem solid #fff;
+  transition: all 0.35s;
+  z-index: 1;
+  top: -0.2625rem;
+  border-radius: 5px 5px 0 0;
+}
+.tab-switch:checked + label + .tab-content {
+  z-index: 2;
+  opacity: 1;
+  transition: all 0.35s;
+}
+.pyramid {
+  text-align: center;
+  position: absolute;
+  z-index: 999999;
+}
+
+.block {
+  display: inline-block;
+  width: 200px; /* Width of each block */
+  height: auto; /* Height of each block */
+  margin: 0 5px; /* Adjust spacing between blocks */
+  margin-bottom: 10px;
+  border: 2px solid transparent; /* Border initially set to transparent */
+  outline: 2px solid #e1e1e1; /* Outline to create the white border */
+  box-shadow: 0 0 0 2px #e1e1e1;
+}
+.block1{
+  display: inline-block;
+  width: 240px; /* Width of each block */
+  height: auto; /* Height of each block */
+  margin: 0 5px; /* Adjust spacing between blocks */
+  margin-bottom: 10px;
+  border: 2px solid transparent; /* Border initially set to transparent */
+  outline: 2px solid white; /* Outline to create the white border */
+  box-shadow: 0 0 0 2px white;
+}
+
+.red {
+  background-color: #A82324; /* Red color */
+}
+
+.gold {
+  background-color: #d2b356; /* Gold color */
+}
+.pyramid .rowww .block p{
+ margin: 10px 0;
+}
+.pyramid .rowww .block1 p{
+ margin: 10px 0;
+}
+.bold-ito{
+    font-weight: bolder;
+}
+.pyramid .rowww .block1 span, .pyramid .rowww .block span{
+ font-weight: normal;
 }
     </style>
 </head>
@@ -75,17 +190,19 @@
                 <div class="col-1">
 
                     <!--Logo-->
-                    <div id="logo">
+                    <div id="logo" style="margin-right: 0;">
 
                         <!--Logo that is shown on the banner-->
-                        <img src="images/ccs-logo.png" id="banner-logo" alt="Landing Page" width="50px" height="50px"/>
+                        <img src="images/ccs-logo.png" id="banner-logo" class="left" alt="Landing Page" width="50px" height="50px"/>
+                        
                         <!--End of Banner Logo-->
-
+                        
                         <!--The Logo that is shown on the sticky Navigation Bar-->
-                        <img src="images/ccs-logo.png" id="navigation-logo" alt="Landing Page" width="50px" height="50px" style="margin-left: 15px;"/>
+                        <img src="images/ccs-logo.png" id="navigation-logo" class="left" alt="Landing Page" width="50px" height="50px" style="margin-left: 15px;"/>
                         <!--End of Navigation Logo-->
 
                     </div>
+                    <img src="images/lspu-removebg-preview.png" id="banner-logo" alt="Landing Page" width="50px" height="50px" style="float: right; margin-top: 13px; margin-right: 15px;"/>
                     <!--Main Navigation-->
                     <nav id="nav-main">
                         <ul>
@@ -93,13 +210,10 @@
                                 <a href="#banner">Home</a>
                             </li>
                             <li>
-                                <a href="#about">Programs</a>
+                                <a href="#about">About Us</a>
                             </li>
                             <li>
                                 <a href="#gallery">Gallery</a>
-                            </li>
-                            <li>
-                                <a href="#vision">Vision & Mission</a>
                             </li>
                         </ul>
                     </nav>
@@ -118,8 +232,8 @@
             <div class="col-38">
 
                 <div class="section-heading">
-                    <h1 style="color: white;">Your Future Starts Here!</h1>
-                    <h2 style="color:white;">Welcome to the LSPU College of Computer Studies, where your journey towards a rewarding career in technology begins. We are thrilled to have you here as you embark on this exciting adventure with us.</h2>
+                    <h1>Your Future Starts Here!</h1>
+                    <h2>Welcome to the LSPU College of Computer Studies, where your journey towards a rewarding career in technology begins. We are thrilled to have you here as you embark on this exciting adventure with us.</h2>
                 </div>
             </div>
 
@@ -130,123 +244,249 @@
     <main id="content">
 
         <!--Introduction-->
-        <section id="about" class="introduction scrollto">
+        <section id="about" class="introduction scrollto" >
+            <section id="faculty" class="scrollto clearfix">
 
-            <div class="row clearfix d-flex">  
-                <div class="col-3 ">
-
-                    <h3>Programs | Courses</h3>
-                    <div>
-                        <img src="images/WMAD-removebg-preview.png" alt="">
-                    </div>
-            </div>
-                <div class="col-2-3">
-                    
-                    <!--Icon Block-->
-                    <div class="col-2 icon-block icon-top wow fadeInUp" data-wow-delay="0.1s">
-                        <!--Icon-->
-                        <div class="icon">
-                            <i class="fa fas fa-network-wired fa-2x"></i>
+                <div class="row clearfix" style="display: flex;">
+                <div style="position: absolute; bottom: 100px; left: 25px;">
+                        <button id="popup-btn" style="padding: 0; border: none; cursor: pointer;"><figure><img src="images/message.gif" alt="" width="100px" height="100px"></figure></button>
+                      </div>
+                    <div class="frame">
+                        <div class="inner-frame">
+                          <div class="mat">
+                            <div class="picture"><img src="images/banner-images/css-faculty.jpg" alt="">
+                                <h2 style="margin-top: 8px; text-align: center; padding: 0; font-weight: bold; 
+                                text-shadow: 5px 0px 1px #A82324, 9px -2px 6px black; letter-spacing: 3px; color: #d2b356; font-size: 29px;">
+                                COLLEGE OF COMPUTER STUDIES</h2></div>
+                          </div>
                         </div>
-                        <!--Icon Block Description-->
-                        <div class="icon-block-description">
-                            <h4>Networking</h4>
-                            <p>
-                                The college networking administration program oversees the network infrastructure, ensuring seamless communication and resource sharing for students and staff.</p>
+                      </div>
+                      <div id="popup" class="popup">
+                        <img src="images/ccs-logo.png" alt="" style="position: absolute; top: 0; left: 100px; opacity: .3;" width="290px" height="auto">
+                        <div class="popup-content">
+                            
+                          <span class="close-btn" id="close-btn">&times;</span>
+                          <h2 style="color: white; font-weight: bold;">Welcome to LSPU's College of Computer Studies! 🖥️💡</h2>
+                          <p style="text-align: justify;">Unleash your potential and shape the future of tech with us. Join a community of innovators and start your journey today! 🚀🌟</p>
                         </div>
-                    </div>
-                    <!--End of Icon Block-->
-
-                    <!--Icon Block-->
-                    <div class="col-2 icon-block icon-top wow fadeInUp" data-wow-delay="0.3s">
-                        <!--Icon-->
-                        <div class="icon">
-                            <i class="fa fas fa-cogs fa-2x"></i>
-                        </div>
-                        <!--Icon Block Description-->
-                        <div class="icon-block-description">
-                            <h4>Service MAnagement Program</h4>
-                            <p>The college service management program optimizes administrative processes, enhancing efficiency and service delivery across various departments.</p>
-                        </div>
-                    </div>
-                    <!--End of Icon Block-->
-                    <div style="width: 100%; display: flex; flex-direction: column; align-items: center;">
-                    <!--Icon Block-->
-                        <div class="col-2 icon-block icon-top wow fadeInUp" data-wow-delay="0.5s">
-                            <!--Icon-->
-                            <div class="icon">
-                                <i class="fa fas fa-mobile fa-2x"></i>
-                            </div>
-                            <!--Icon Block Description-->
-                            <div class="icon-block-description">
-                                <h4>Web &amp; Mobile Application Development</h4>
-                                <p>The college web and application development program fosters expertise in creating responsive and innovative digital solutions for diverse needs, preparing students for the ever-evolving technology industry</p>
-                            </div>
-                        </div>
-                    <!--End of Icon Block-->
-                    </div>
-                                        
-
-
-
-            </div>
-
-
+                      </div>
+                </div>
         </section>
+        
+            <div class="row clearfix d-flex" style="padding-top: 0; padding-left: 40px; padding-right: 40px;">  
+                
+                <div class="wrapper-tab">
+                    <div class="tabs">
+                      <div class="tab">
+                        <input type="radio" name="css-tabs" id="tab-1" checked class="tab-switch">
+                        <label for="tab-1" class="tab-label">Information Technology</label>
+                        <div class="tab-content">
+                            <div class="col-1 " style="padding: 0; display: flex; padding: 25px; align-items: center;">
+                                <div style="margin-right: 40px; position: relative;">
+                                        <div style="display: flex; justify-content: center; align-items: center;">
+                                        <a ><div id="wmad" class="but" onclick="toggle()" style="cursor: pointer;"><img src="images/wmad-logo-removebg-preview.png" alt="" ></div></a>
+                                        <a ><div id="smp" class="but-2" onclick="toggle()" style="cursor: pointer;"><img src="images/smp-logo-removebg-preview.png" alt=""></div></a>
+                                    </div>
+                                    <a ><div id="networking" class="but-1" onclick="toggle()" style="cursor: pointer;"><img src="images/networking-logo-removebg-preview.png" alt=""></div></a>
+                                </div>
+                                <div style="padding-top: 0; display: flex; flex-direction: column; width: 60%;">
+                                    <div id="first" class="icon-block icon-top wow fadeInUp" style="padding-top: 0; display: block;" data-wow-delay="0.3s">
+                                        <div class="icon">
+                                            <i class="fa fas fa-cogs fa-2x"></i>
+                                        </div>
+                                        <div class="icon-block-description">
+                                            <h4>Web &amp; Mobile Application Development</h4>
+                                            <p>
+                                                Welcome to the Web and Mobile Application Development course at LSPU San Pablo City's Bachelor of Science in Information Technology program. This course covers web fundamentals, backend development, mobile app development, database management, UX/UI design, and application deployment. Students gain hands-on experience to design, develop, deploy, and maintain modern web and mobile applications, preparing them for careers as full-stack developers, mobile app developers, or UX/UI designers in the IT industry.
+                                                </p>
+                                                <button class="btn2"> Apply Now!</button>
+                                        </div>
+                                    </div>
+                                    <!--Icon Block-->
+                                    <div id="third" class="icon-block icon-top wow fadeInUp"style="padding-top: 0; display: none;" data-wow-delay="0.3s">
+                                        <!--Icon-->
+                                        <div class="icon">
+                                            <i class="fa fas fa-network-wired fa-2x" ></i>
+                                        </div>
+                                        <!--Icon Block Description-->
+                                        <div class="icon-block-description" >
+                                            <h4>Networking</h4>
+                                            <p>
+                                                Welcome to the Networking course in LSPU San Pablo City's Bachelor of Science in Information Technology program. This course covers network fundamentals, design, security, wireless/mobile networking, administration, and emerging technologies. Students learn to design, implement, and manage modern computer networks, preparing them for careers as network administrators, engineers, cybersecurity specialists, or IT consultants in various industries.   
+                                            </p>
+                                            <button class="btn2"> Apply Now!</button>
+                                        </div>
+                                    </div>
+                                    <!--End of Icon Block-->
+                
+                                    <!--Icon Block-->
+                                    <div id="second" class="icon-block icon-top wow fadeInUp" style="padding-top: 0; display: none;" data-wow-delay="0.3s">
+                                        <div class="icon">
+                                            <i class="fa fas fa-cogs fa-2x"></i>
+                                        </div>
+                                        <div class="icon-block-description">
+                                            <h4>Service MAnagement Program</h4>
+                                            <p>
+                                                Welcome to the Service Management course within LSPU San Pablo City's Bachelor of Science in Information Technology program. This course covers IT service management frameworks like ITIL, service design, operations, transition, continual service improvement, and relevant tools. Students learn how to efficiently manage IT services, align them with business objectives, and drive continual improvement. Graduates are equipped for roles such as IT service managers, service desk analysts, or IT consultants, adept at enhancing IT service delivery in various industries.
+                                            </p>
+                                            <button class="btn2"> Apply Now!</button>
+                                        </div>
+                                    </div>
+                                    <!--End of Icon Block-->
+                                        
+                                    
+                        </div>
+                        
+                        </div>
+                        <div class="prof" style="position: relative;">
+                            <div>
+                                <img src="images/harapngccs.jpg" alt="" height="100px" >
+                            </div>
+                            <div class="block gold bold-ito" style="position: absolute; left: 0; top: 5px; width: 10%; text-align: center; padding: 15px;">CCS IT STAFF</div>
+                            <div class="pyramid" style="position: absolute; top: 150px; left: 50px;">
+                                <div class="rowww">
+                                  <div class="block gold"><p class="bold-ito">RONNEL DELA CRUZ<br><span>CCS Dean</span></p></div>
+                                </div>
+                                <div class="rowww">
+                                  <div class="block gold"><p class="bold-ito">JOESUA R. MANZANERO <br> <span> Program Coordinator</span></p></div>
+                                </div>
+                                <div class="rowww">
+                                  <div class="block1 gold"><p class="bold-ito">MARCO JR. N. DEL ROSARIO	<br><span>BSINFO Professor</span> </p></div>
+                                  <div class="block1 gold" style="width: 280px;"><p class="bold-ito">WINCHELL CEAZAR R. DESAMERO <br> BSINFO Professor</p></div>
+                                </div>
+                                <div class="rowww">
+                                    <div class="block1 gold"><p class="bold-ito">ANNA PRINCESS L. MARITA <br><span>BSINFO Professor</span></p></div>
+                                  <div class="block1 gold"><p class="bold-ito">MARLON BOYET B. DUNGO <br> <span>BSINFO Professor</span></p></div>
+                                  <div class="block1 gold"><p class="bold-ito">MA. CONCEPCION R. REPALAM <br> <span>BSINFO Professor</span></p></div>
+                                  
+                                </div>
+                                <div class="rowww">
+                                    <div class="block gold"><p class="bold-ito">JOANNA E. DE TORRES <br> <span>BSINFO Professor</span></p></div>
+                                    <div class="block gold"><p class="bold-ito">REYMAR V. MANALOTO <br> <span>BSINFO Professor</span></p></div>
+                                    <div class="block gold"><p class="bold-ito">JOHN RYAN S. UAL <br> <span>BSINFO Professor</span></p></div>
+                                  <div class="block gold"><p class="bold-ito">SARAH ESCOTE <br> <span>BSINFO Professor</span></p></div>
+                                  <div class="block gold"><p class="bold-ito">JENNELYN E. ESPINUEVA <br> <span>BSINFO Professor</span></p></div>
+                            
+                                </div>
+                              </div>
+                        </div>
+                    
+                        </div>
+
+                      </div>
+                      <div class="tab">
+                        <input type="radio" name="css-tabs" id="tab-2" class="tab-switch">
+                        <label for="tab-2" class="tab-label">Computer Science</label>
+                        <div class="tab-content"> 
+                            <div class="roww clearfix d-flex" style="padding-bottom: 0;">  
+                            <div class="col-1 " style="padding: 0; display: flex; padding: 25px; align-items: center;">
+                                <div style="margin-right: 40px;">
+                                    <img src="images/SI-removebg-preview.png" alt="" >
+                                </div>
+                                <div style="padding-top: 0; display: flex; flex-direction: column; width: 60%;">
+                                
+                                    <!--Icon Block-->
+                                    <div class="icon-block icon-top wow fadeInUp" style="padding-top: 0;" data-wow-delay="0.1s">
+                                        <!--Icon-->
+                                        <div class="icon" style="display: inline-block;">
+                                            <i class="fa fas fa-lightbulb-o fa-2x" ></i>
+                                        </div>
+                                        <!--Icon Block Description-->
+                                        <div class="icon-block-description" >
+                                            <h4>System Intellegence</h4>
+                                            <p>
+                                               
+                    Welcome to the System Intelligence course at LSPU San Pablo City's Computer Science program. This course delves into artificial intelligence, machine learning, and data mining. Students will learn the fundamentals, machine learning techniques, data mining processes, intelligent system design, and their real-world applications. Through hands-on projects, they'll gain practical skills to tackle complex problems. This course prepares students for careers in software development, data analysis, and research in the rapidly evolving field of AI and data science.</p>
+                    <button class="btn2"> Apply Now!</button>                        
+                </div>
+                                    </div>
+                                    <!--End of Icon Block-->
+                            </div>
+                        </div>
+                        </div> 
+                        <div class="prof" style="position: relative;">
+                            
+                            <div>
+                                <img src="images/harapngccs.jpg" alt="" height="100px" >
+                            </div>
+                            <div class="block gold bold-ito" style="position: absolute; left: 0; top: 5px; width: 10%; text-align: center; padding: 15px;">CCS CS STAFF</div>
+                            <div class="pyramid" style="position: absolute; top: 150px; left: 180px ;">
+                                <div class="rowww">
+                                  <div class="block gold"><p class="bold-ito">RONNEL DELA CRUZ<br><span>CCS Dean</span></p></div>
+                                </div>
+                                <div class="rowww">
+                                  <div class="block gold"><p class="bold-ito">CATHERINE A. CASTILLO <br><span>Program Coordinator</span> </p></div>
+                                </div>
+                                <div class="rowww">
+                                  <div class="block1 gold"><p class="bold-ito">NICKO C. ALBES	<br><span>BSCS Professor</span></p></div>
+                                  <div class="block1 gold" style="width: 280px;"><p class="bold-ito">NORRIS ALEXIS P. AMORA	 <br> <span>BSCS Professor</span></p></div>
+                                </div>
+                                <div class="rowww">
+                                    <div class="block1 gold"><p class="bold-ito">KRISTINE KAYE M. ARIDA <br><span>BSCS Professor</span></p></div>
+                                  <div class="block1 gold"><p class="bold-ito">NIERRO C. ILAGAN <br> <span>BSCS Professor</span></p></div>
+                                  <div class="block1 gold"><p class="bold-ito">KRISTINE S. OMPANGCO <br> <span>BSCS Professor</span></p></div>
+                                  
+                                </div>
+                                <div class="rowww">
+                                    <div class="block gold" style="width: 280px;"><p class="bold-ito">MARTIN JASON S. TAGADTAD <br> <span>BSCS Professor</span></p></div>
+                                    <div class="block gold"><p class="bold-ito">AL JOHN VILLAREAL <br> <span>BSCS Professor</span></p></div>
+                                    <div class="block gold"><p class="bold-ito">PRINCE ROSS O. ANDRES <br> <span>BSCS Professor</span></p></div>
+                                 
+                            
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                      </div>
+                    </div>
+    </div>
+    <section id="vision" class="scrollto clearfix" style="display: flex; justify-content: center;">
+
+        <div class="row clearfix" style="display: flex;  padding-top: 75px; justify-content: center; ">
+            <div class="cont-" style="background-color: #d2b356; color: whitesmoke;">
+                <u><h3 style="color: whitesmoke;">Vision</h3></u>
+                <p>LSPU is a center of technology innovation that promotes interdisciplinary learning, sustainable utilization of resources, collaboration and partnership with the community and stakeholders.</p>
+            </div>
+            <div class="cont-">
+                <u><h3>Mission</h3></u>
+                <p>LSPU, driven by progressive leadership, is a premier institution providing technology-mediated agriculture, fisheries and other related and emerging disciplines significantly contributing to the growth and development of the region and nation.</p>
+            </div>
+        </div>
+    </section>    
+</div>
+        </section>
+        
         <!--End of Introduction-->
 
-
-        <div id="gallery" class="scrollto clearfix">
-        <div class="row clearfix"> 
-            <h3 style="margin-left: 30px; margin-bottom: 10px;">Some CCS Engagements</h3>
+<section section id="gallery" class="scrollto" style="background-color: #f9f9f8;">
+    <div>
+        <div class="row clearfix" style="padding-left: 20px; padding-right: 20px;"> 
+            <h3 style="margin-left: 30px; margin-bottom: 10px;">Our College Engagements</h3>
                 <div class="flex">
-                    
                    <div class="gallery-10 flexx"></div>
                    <div class="gallery-20 flexx"></div>
                    <div class="gallery-30 flexx"></div>
                </div>
            </div>    
         </div>
+</section>
        
 
-        <!--Content Section-->
-        <div id="vision" class="scrollto clearfix">
-
-            <div class="row clearfix v-m-container">
-
-                
-                    <div class="cont-" style="background-color: #d2b356; color: whitesmoke;">
-                        <u><h3 style="color: whitesmoke;">Vision</h3></u>
-                        <p>LSPU is a center of technology innovation that promotes interdisciplinary learning, sustainable utilization of resources, collaboration and partnership with the community and stakeholders.</p>
-                    </div>
-                    <div class="cont-">
-                        <u><h3>Mission</h3></u>
-                        <p>LSPU, driven by progressive leadership, is a premier institution providing technology-mediated agriculture, fisheries and other related and emerging disciplines significantly contributing to the growth and development of the region and nation.</p>
-                    </div>
-            
-
-            </div>
-
-
-        </div>
-        <!--End of Content Section-->
-
-
     <!--Footer-->
-    <footer id="landing-footer" class="clearfix">
-        <div class="row clearfix">
-
-            <p id="copyright" class="col-2">-LSPU San Pablo City College of Computer Studies </a></p>
-
-            <!--Social Icons in Footer-->
-            <ul class="col-2 social-icons">
-                <li>
-                    <a target="_blank" title="Facebook" href="https://www.facebook.com/CCS.LSPU.SPCC">
-                        <img src="images/facebook.png" alt="" width="30px" height="30px"><span>Facebook</span>
-                    </a>
-                </li>
-            </ul>
-            <!--End of Social Icons in Footer-->
+    <footer id="landing-footer" class="clearfix" >
+        <div class="row clearfix" style="display: flex; justify-content:flex-start; align-items: center;">
+         <div style="width: 60%; padding-left: 35px;"><button class="Btn">
+  
+            <div class="sign"><img class="fb" src="images/facebook-app-symbol.png" alt="" width="30px" height="30px" style=" filter: invert(100%);"><path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"></path></svg></div>
+            <div style="display: flex; justify-content: center;">
+                 <div class="text"><a target="_blank" href="https://www.facebook.com/CCS.LSPU.SPCC" title="College of Computer Studies"><img src="images/ccs-logo.png" width="30px" height="30px" alt=""></a></div>
+                <div class="text"><a target="_blank" href="https://www.facebook.com/CCSComputerClub" title="Computer Club LSPU-SPCC "><img src="images/com-club-removebg-preview.png" width="30px" height="30px" alt=""></a></div>
+            </div>
+            
+          </button> </div>
+         <div style="width: 100%;"><p id="copyright" class="col-2" >-LSPU San Pablo City College of Computer Studies </a></p></div>
+                        
+          
         </div>
     </footer>
     <!--End of Footer-->

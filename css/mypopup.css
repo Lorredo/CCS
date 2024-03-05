@@ -1,0 +1,49 @@
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5); /* Initially scaled down */
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 30px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    z-index: 999;
+    animation: pop-up 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards, fade-in 0.5s ease forwards;
+    margin-top: 35px;
+    height: auto;
+    width: 500px;
+
+  }
+  
+  .popup-content {
+    position: relative;
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: -40px;
+    right: -20px;
+    cursor: pointer;
+    font-size: 36px;
+  padding: 10px;
+  }
+  
+  @keyframes pop-up {
+    from {
+      transform: translate(-50%, -50%) scale(0.5);
+    }
+    to {
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+  
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }

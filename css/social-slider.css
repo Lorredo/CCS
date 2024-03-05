@@ -1,0 +1,64 @@
+.Btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  overflow: hidden;
+  transition-duration: .3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+  background-color:#1877f2;
+  padding: 0;
+}
+
+/* plus sign */
+.sign {
+  width: 100%;
+  transition-duration: .3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign svg {
+  width: 45px;
+}
+
+.sign svg path {
+  fill: white;
+}
+/* text */
+.text {
+  opacity: 0;
+  color: white;
+  font-size: 1.2em;
+  font-weight: 600;
+  transition-duration: .3s;
+  display: none;
+}
+/* hover effect on button width */
+.Btn:hover {
+  width: 200px;
+  border-radius: 40px;
+  transition-duration: .3s;
+}
+.Btn:hover .sign {
+  width: 20%;
+  transition-duration: .3s;
+  cursor:default;
+}
+/* hover effect button's text */
+.Btn:hover .text {
+  opacity: 1;
+  width: 80%;
+  transition-duration: .3s;
+  padding-right: 10px;
+  display: block;
+}
+/* button click effect*/
+.Btn:active {
+  transform: translate(2px ,2px);
+}

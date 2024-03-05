@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scroll Button Example</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+    body{
+        height: 1000vh;
+    }
+</style>
+</head>
+<body>
+<!-- Your content here -->
+<div id="content">
+  <h1>Welcome to my website!</h1>
+  <p>Scroll down to see the button</p>
+</div>
+
+<!-- Button to be displayed after scrolling -->
+<button id="scrollButton" style="display: none;">Scroll to Top</button>
+
+
+
+
+<script>
+    // Get the button element
+var scrollButton = document.getElementById('scrollButton');
+var lastScrollTop = 0;
+// Event listener for scroll event
+window.addEventListener('scroll', function() {
+    var currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    var viewportHeight = window.innerHeight;
+  
+        // User is scrolling down
+        if (currentScroll >= viewportHeight) {
+            // User has scrolled down 600px or more
+            console.log('User has scrolled down 600px');
+
+            // Do something here, like triggering an action or showing a message
+            scrollButton.style.display = 'block';
+        }
+    
+});
+
+</script>
+</body>
+</html>

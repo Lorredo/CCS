@@ -55,7 +55,7 @@ a:hover, #header.nav-solid nav a:hover {
 /* Transparent Navigation Color on a Banner */
 
 #header nav a, #header i {
-    color:#111;
+    color:#000000;
 }
 
 
@@ -125,7 +125,7 @@ a:hover, #header.nav-solid nav a:hover {
 /* Banner Background and Text Colors */
 
 #banner {
-    background: url("../images/banner-images/css-faculty.jpg") no-repeat center top;
+    background: url("../images/ccs-building.jpg") no-repeat center top;
     background-size:cover;
 }
 
@@ -168,14 +168,16 @@ body {
     font-size:62px;
     line-height:60px;
     font-weight:800;
-    color:#111;
+    color:black;
+    text-shadow: -5px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
 }
 
 #banner h2 {
     font-family: 'Open Sans', sans-serif, Arial, Helvetica;
     font-size:18px;
-    font-weight:300;
-    color:#111;
+    font-weight: 500;
+    color:black;
+    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
 }
 
 
@@ -226,7 +228,7 @@ h2 {
 
 h3 {
     font-family: 'Open Sans', sans-serif, Arial, Helvetica;
-    font-size: 30px; 
+    font-size: 20px; 
     font-weight:700;
     color:#111;
 }
